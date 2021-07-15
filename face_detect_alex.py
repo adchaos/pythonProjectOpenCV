@@ -3,7 +3,8 @@ import cv2
 import os
 
 
-def face_detect(image, count=None):
+def face_detect(image, index=None):
+    #FIXME put image_path for the input of the method and delete assigment
     image_path = image
     casc_path = os.getcwd() + "/haarcascade_frontalface_default.xml"
 
@@ -28,8 +29,8 @@ def face_detect(image, count=None):
         cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
     # Possible fixes:
     # save the picture for further visual verifications
-    # new_image_path = f"./Alex{count}.png"
-    # cv2.imwrite(filename=new_image_path, img=image)
+    new_image_path = f"./Output_image_{index}.png"
+    cv2.imwrite(filename=new_image_path, img=image)
 
     # show the picture and wait for user interaction
     cv2.imshow("window_name", image)
