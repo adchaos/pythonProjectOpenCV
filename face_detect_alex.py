@@ -26,7 +26,13 @@ def face_detect(image, count=None):
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
         cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    # Possible fixes:
+    # save the picture for further visual verifications
+    # new_image_path = f"./Alex{count}.png"
+    # cv2.imwrite(filename=new_image_path, img=image)
 
-    new_image_path = f"./Alex{count}.png"
-    cv2.imwrite(filename=new_image_path, img=image)
+    # show the picture and wait for user interaction
+    cv2.imshow("window_name", image)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
     return len(faces)
